@@ -80,6 +80,27 @@ html, body {
   to   { transform: translate(38px, 38px); }
 }
 
+/* ── Swappable background image ───────────────────────────── */
+/*
+ * Drop your artwork at assets/map/background.png and it
+ * automatically replaces the CSS ocean below.
+ * The water-ripple overlays (::before / ::after) stay on top
+ * at low opacity so the map still feels alive even with art.
+ * To disable the ripple overlay once you have art, set:
+ *   #map::before, #map::after { display: none; }
+ */
+#map-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url('assets/map/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* Hidden until the PNG actually exists — the CSS ocean
+     on #map shows through as the fallback. */
+}
+
 /* ── SVG paths ────────────────────────────────────────────── */
 #paths-svg {
   position: absolute; inset: 0;
