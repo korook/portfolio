@@ -131,7 +131,7 @@ function renderRegions() {
     let base, structure;
     if (region.base) {
       base = document.createElement("img");
-      base.className = "island-base island-base--art";
+      base.className = "island-base--art";
       base.src = region.base;
       base.alt = region.name;
       base.draggable = false;
