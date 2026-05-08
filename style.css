@@ -153,17 +153,15 @@ html, body {
   position: absolute;
   bottom: 50px; left: 50%;
   transform: translateX(-50%);
-  width: 280px;
+  width: 420px;
   height: auto;
   object-fit: contain;
   pointer-events: none;
-  /* Same floating shadow as the placeholder */
-  filter: drop-shadow(0 16px 24px rgba(0,0,0,0.5))
-          drop-shadow(0 4px 6px rgba(0,0,0,0.3));
   border-radius: 0;
   background: none;
   border: none;
   box-shadow: none;
+  filter: none;
 }
 
 /* Island base — organic blob shape with floating shadow */
