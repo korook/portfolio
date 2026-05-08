@@ -31,7 +31,8 @@ const REGIONS = [
     color: "#00C2C7",
     pdf: "assets/pdfs/signal.pdf",
     animations: ["blink-tower", "wave"],
-    structure: { width: "14px", height: "100px" }
+    structure: { width: "14px", height: "100px" },
+    base: "assets/regions/signal/base.png"
   },
   {
     id: "archive",
