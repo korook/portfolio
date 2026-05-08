@@ -10,7 +10,8 @@ const REGIONS = [
     color: "#E87040",
     pdf: "assets/pdfs/industrial.pdf",
     animations: ["smoke"],
-    structure: { width: "70px", height: "90px" }
+    structure: { width: "70px", height: "90px" },
+    base: "assets/regions/industrial/base.png"
   },
   {
     id: "graph",
@@ -126,18 +127,28 @@ function renderRegions() {
       el.style.filter = "";
     });
 
-    /* Island base */
-    const base = document.createElement("div");
-    base.className = "island-base";
-    base.style.background = hex2rgba(region.color, 0.28);
-    base.style.border = `2.5px solid ${hex2rgba(region.color, 0.55)}`;
+    /* Island base — PNG art if available, otherwise CSS placeholder */
+    let base, structure;
+    if (region.base) {
+      base = document.createElement("img");
+      base.className = "island-base island-base--art";
+      base.src = region.base;
+      base.alt = region.name;
+      base.draggable = false;
+      /* No structure placeholder when real art is present */
+      structure = null;
+    } else {
+      base = document.createElement("div");
+      base.className = "island-base";
+      base.style.background = hex2rgba(region.color, 0.28);
+      base.style.border = `2.5px solid ${hex2rgba(region.color, 0.55)}`;
 
-    /* Structure */
-    const structure = document.createElement("div");
-    structure.className = "island-structure";
-    structure.style.width  = region.structure.width;
-    structure.style.height = region.structure.height;
-    structure.style.background = region.color;
+      structure = document.createElement("div");
+      structure.className = "island-structure";
+      structure.style.width  = region.structure.width;
+      structure.style.height = region.structure.height;
+      structure.style.background = region.color;
+    }
 
     /* Animations */
     const animEls = buildAnimations(region);
@@ -152,7 +163,7 @@ function renderRegions() {
     `;
 
     el.appendChild(base);
-    el.appendChild(structure);
+    if (structure) el.appendChild(structure);
     animEls.forEach(a => el.appendChild(a));
     el.appendChild(label);
 
