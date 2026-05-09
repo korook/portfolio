@@ -47,7 +47,7 @@ const REGIONS = [
         media: "assets/regions/signal/projects/lost.in.space.mp4"
       }
     ],
-    animations: ["blink-tower", "wave"],
+    animations: ["blink-tower"],
     structure: { width: "14px", height: "100px" },
     base: "assets/regions/signal/base.png"
   },
