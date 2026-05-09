@@ -40,13 +40,12 @@ const REGIONS = [
     color: "#00C2C7",
     panelType: "feed",
     projects: [
-      // Add projects here. Each entry:
-      // {
-      //   name: "Project Name",
-      //   description: "Short description",
-      //   thumbnail: "assets/regions/signal/projects/thumb.jpg",
-      //   media: "assets/regions/signal/projects/media.mp4"  ← image OR .mp4
-      // }
+      {
+        name: "Lost in Space",
+        description: "Lost in Space is an original audiovisual project combining hand-drawn illustration and sound design. The piece follows an astronaut who arrives at a space casino, stepping into its lively and chaotic atmosphere. As the astronaut settles in and begins to play, the world around them slowly fades. The noise and energy of the casino give way to something more internal — a quiet drift into thought. From there, the music takes over, gradually expanding into a spacey, cinematic soundscape that grows more majestic as it unfolds, mirroring the astronaut's journey deeper into their own mind. The illustration and soundscape were designed together as a single experience, where the visual anchors the story and the audio carries the emotional arc.",
+        thumbnail: "assets/regions/signal/projects/lost.in.space.thumb.jpg",
+        media: "assets/regions/signal/projects/lost.in.space.mp4"
+      }
     ],
     animations: ["blink-tower", "wave"],
     structure: { width: "14px", height: "100px" },
