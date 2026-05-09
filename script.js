@@ -19,7 +19,16 @@ const REGIONS = [
     description: "Posters, Graphics & Illustrations",
     position: { x: 72, y: 20 },
     color: "#9B5DE5",
-    pdf: "assets/pdfs/graph.pdf",
+    panelType: "feed",
+    projects: [
+      // Add projects here. Each entry:
+      // {
+      //   name: "Project Name",
+      //   description: "Short description",
+      //   thumbnail: "assets/regions/graph/projects/thumb.jpg",
+      //   media: "assets/regions/graph/projects/media.jpg"  ← image OR .mp4
+      // }
+    ],
     animations: ["blink"],
     structure: { width: "80px", height: "80px" }
   },
@@ -29,7 +38,16 @@ const REGIONS = [
     description: "Sound Projects & Music",
     position: { x: 22, y: 70 },
     color: "#00C2C7",
-    pdf: "assets/pdfs/signal.pdf",
+    panelType: "feed",
+    projects: [
+      // Add projects here. Each entry:
+      // {
+      //   name: "Project Name",
+      //   description: "Short description",
+      //   thumbnail: "assets/regions/signal/projects/thumb.jpg",
+      //   media: "assets/regions/signal/projects/media.mp4"  ← image OR .mp4
+      // }
+    ],
     animations: ["blink-tower", "wave"],
     structure: { width: "14px", height: "100px" },
     base: "assets/regions/signal/base.png"
@@ -284,20 +302,28 @@ function refreshPaths() {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   PDF OVERLAY PANEL
+   MAIN OVERLAY PANEL
 ════════════════════════════════════════════════════════════ */
 const overlay  = document.getElementById("pdf-overlay");
 const topbar   = document.getElementById("pdf-topbar");
 const nameEl   = document.getElementById("pdf-region-name");
 const descEl   = document.getElementById("pdf-region-desc");
-const frame    = document.getElementById("pdf-frame");
-const closeBtn = document.getElementById("pdf-close");
+const panelBody = document.getElementById("panel-body");
+const closeBtn  = document.getElementById("pdf-close");
 
 function openPanel(region) {
-  nameEl.textContent  = region.name;
-  descEl.textContent  = region.description;
+  nameEl.textContent = region.name;
+  descEl.textContent = region.description;
   topbar.style.background = region.color;
-  frame.src = region.pdf;
+
+  /* Clear previous content */
+  panelBody.innerHTML = "";
+
+  if (region.panelType === "feed") {
+    renderFeed(region);
+  } else {
+    renderPDF(region.pdf);
+  }
 
   overlay.classList.add("open");
   overlay.setAttribute("aria-hidden", "false");
@@ -306,17 +332,131 @@ function openPanel(region) {
 function closePanel() {
   overlay.classList.remove("open");
   overlay.setAttribute("aria-hidden", "true");
-  /* Delay src clear so iframe doesn't flash blank during slide-out */
-  setTimeout(() => { frame.src = ""; }, 420);
+  setTimeout(() => { panelBody.innerHTML = ""; }, 420);
 }
 
+/* ── PDF renderer ─────────────────────────────────────────── */
+function renderPDF(src) {
+  const frame = document.createElement("iframe");
+  frame.src = src;
+  frame.title = "Portfolio PDF";
+  panelBody.appendChild(frame);
+}
+
+/* ── Feed renderer ────────────────────────────────────────── */
+function renderFeed(region) {
+  const list = document.createElement("div");
+  list.className = "feed-list";
+
+  if (!region.projects || region.projects.length === 0) {
+    const empty = document.createElement("div");
+    empty.className = "feed-empty";
+    empty.innerHTML = `
+      <span class="feed-empty-icon">🗂️</span>
+      <span>No projects yet</span>
+    `;
+    list.appendChild(empty);
+  } else {
+    region.projects.forEach(project => {
+      const card = document.createElement("div");
+      card.className = "feed-card";
+
+      const isVideo = /\.mp4$/i.test(project.media);
+
+      /* Left: thumbnail */
+      const thumbWrap = document.createElement("div");
+      thumbWrap.className = "feed-thumb-wrap";
+
+      const thumb = document.createElement("img");
+      thumb.src = project.thumbnail;
+      thumb.alt = project.name;
+      thumbWrap.appendChild(thumb);
+
+      /* Badge: VIDEO or IMG */
+      const badge = document.createElement("span");
+      badge.className = `feed-badge feed-badge--${isVideo ? "video" : "image"}`;
+      badge.textContent = isVideo ? "VIDEO" : "IMAGE";
+      thumbWrap.appendChild(badge);
+
+      /* Play icon overlay for videos */
+      if (isVideo) {
+        const play = document.createElement("div");
+        play.className = "feed-play-icon";
+        play.textContent = "▶";
+        thumbWrap.appendChild(play);
+      }
+
+      /* Right: text */
+      const info = document.createElement("div");
+      info.className = "feed-info";
+      info.innerHTML = `
+        <span class="feed-project-name">${project.name}</span>
+        <span class="feed-project-desc">${project.description}</span>
+      `;
+
+      card.appendChild(thumbWrap);
+      card.appendChild(info);
+
+      /* Click → open lightbox */
+      card.addEventListener("click", () => openLightbox(project.media, isVideo));
+
+      list.appendChild(card);
+    });
+  }
+
+  panelBody.appendChild(list);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LIGHTBOX
+════════════════════════════════════════════════════════════ */
+const lightbox        = document.getElementById("lightbox");
+const lightboxContent = document.getElementById("lightbox-content");
+const lightboxClose   = document.getElementById("lightbox-close");
+
+function openLightbox(src, isVideo) {
+  lightboxContent.innerHTML = "";
+
+  if (isVideo) {
+    const video = document.createElement("video");
+    video.src = src;
+    video.controls = true;
+    video.autoplay = true;
+    lightboxContent.appendChild(video);
+  } else {
+    const img = document.createElement("img");
+    img.src = src;
+    lightboxContent.appendChild(img);
+  }
+
+  lightbox.classList.add("open");
+  lightbox.setAttribute("aria-hidden", "false");
+}
+
+function closeLightbox() {
+  lightbox.classList.remove("open");
+  lightbox.setAttribute("aria-hidden", "true");
+  /* Stop video playback before clearing */
+  const video = lightboxContent.querySelector("video");
+  if (video) video.pause();
+  setTimeout(() => { lightboxContent.innerHTML = ""; }, 220);
+}
+
+lightboxClose.addEventListener("click", closeLightbox);
+lightbox.addEventListener("click", e => {
+  if (e.target === lightbox) closeLightbox();
+});
+
+/* Panel close */
 closeBtn.addEventListener("click", closePanel);
 
 document.addEventListener("keydown", e => {
-  if (e.key === "Escape") closePanel();
+  if (e.key === "Escape") {
+    if (lightbox.classList.contains("open")) closeLightbox();
+    else closePanel();
+  }
 });
 
-/* Click on dark backdrop (outside panel) closes */
 overlay.addEventListener("click", e => {
   if (e.target === overlay) closePanel();
 });

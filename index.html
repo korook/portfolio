@@ -44,7 +44,7 @@
 
   </div>
 
-  <!-- PDF overlay panel -->
+  <!-- Main overlay panel (PDF or Feed) -->
   <div id="pdf-overlay" aria-hidden="true">
     <div id="pdf-panel">
       <div id="pdf-topbar">
@@ -54,8 +54,15 @@
         </div>
         <button id="pdf-close" aria-label="Close">✕</button>
       </div>
-      <iframe id="pdf-frame" title="Portfolio PDF" src=""></iframe>
+      <!-- Content injected here dynamically (iframe or feed list) -->
+      <div id="panel-body"></div>
     </div>
+  </div>
+
+  <!-- Lightbox (image zoom / video player) -->
+  <div id="lightbox" aria-hidden="true">
+    <button id="lightbox-close" aria-label="Close">✕</button>
+    <div id="lightbox-content"></div>
   </div>
 
   <script src="script.js"></script>
