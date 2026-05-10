@@ -30,7 +30,8 @@ const REGIONS = [
       // }
     ],
     animations: ["blink"],
-    structure: { width: "80px", height: "80px" }
+    structure: { width: "80px", height: "80px" },
+    base: "assets/regions/graph/base.png"
   },
   {
     id: "signal",
@@ -59,7 +60,8 @@ const REGIONS = [
     color: "#F4C842",
     pdf: "assets/pdfs/archive.pdf",
     animations: ["beacon"],
-    structure: { width: "36px", height: "110px" }
+    structure: { width: "36px", height: "110px" },
+    base: "assets/regions/archive/base.png"
   }
 ];
 
