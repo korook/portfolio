@@ -54,7 +54,7 @@ const REGIONS = [
   },
   {
     id: "archive",
-    name: "Archive Tower",
+    name: "The Archive",
     description: "CV and Personal Info",
     position: { x: 74, y: 65 },
     color: "#F4C842",
