@@ -9,7 +9,7 @@ const REGIONS = [
     position: { x: 20, y: 25 },
     color: "#E87040",
     pdf: "assets/pdfs/industrial.pdf",
-    animations: ["smoke"],
+    animations: [{ type: "smoke", left: "calc(50% - 55px)", bottom: "262px" }],
     structure: { width: "70px", height: "90px" },
     base: "assets/regions/industrial/base.png"
   },
@@ -29,7 +29,7 @@ const REGIONS = [
       //   media: "assets/regions/graph/projects/media.jpg"  ← image OR .mp4
       // }
     ],
-    animations: ["blink"],
+    animations: [],
     structure: { width: "80px", height: "80px" },
     base: "assets/regions/graph/base.png"
   },
@@ -48,7 +48,10 @@ const REGIONS = [
         media: "assets/regions/signal/projects/lost.in.space.mp4"
       }
     ],
-    animations: ["blink-tower"],
+    animations: [
+      { type: "blink-tower", left: "calc(50% - 100px)", bottom: "322px" },
+      { type: "blink-dish",  left: "calc(50% + 48px)",  bottom: "332px" }
+    ],
     structure: { width: "14px", height: "100px" },
     base: "assets/regions/signal/base.png"
   },
@@ -59,7 +62,7 @@ const REGIONS = [
     position: { x: 74, y: 65 },
     color: "#F4C842",
     pdf: "assets/pdfs/archive.pdf",
-    animations: ["beacon"],
+    animations: [],
     structure: { width: "36px", height: "110px" },
     base: "assets/regions/archive/base.png"
   }
@@ -200,13 +203,21 @@ function renderRegions() {
 function buildAnimations(region) {
   const els = [];
 
-  region.animations.forEach(anim => {
-    switch (anim) {
+  region.animations.forEach(entry => {
+    /* Support both plain strings ("smoke") and objects ({ type, left, bottom }) */
+    const type = typeof entry === "string" ? entry : entry.type;
+    const left = (typeof entry === "object" && entry.left)   ? entry.left   : "50%";
+    const bot  = (typeof entry === "object" && entry.bottom) ? entry.bottom : null;
+    const useTransform = left === "50%"; /* only centre-align when left is 50% */
+
+    switch (type) {
 
       case "smoke": {
         const container = document.createElement("div");
         container.className = "smoke-container";
-        container.style.bottom = "258px";
+        container.style.bottom = bot || "258px";
+        container.style.left   = left;
+        if (!useTransform) container.style.transform = "none";
         for (let i = 0; i < 3; i++) {
           const puff = document.createElement("div");
           puff.className = "smoke-puff";
@@ -217,26 +228,37 @@ function buildAnimations(region) {
       }
 
       case "blink": {
-        /* Neon dot on building top */
         const dot = document.createElement("div");
         dot.className = "blink-dot";
         dot.style.cssText = `
-          bottom: 262px;
-          left: 50%;
-          transform: translateX(-50%);
+          bottom: ${bot || "262px"};
+          left: ${left};
+          transform: ${useTransform ? "translateX(-50%)" : "none"};
         `;
         els.push(dot);
         break;
       }
 
       case "blink-tower": {
-        /* Tower tip blink for Signal Bay */
         const dot = document.createElement("div");
         dot.className = "tower-blink";
         dot.style.cssText = `
-          bottom: 288px;
-          left: 50%;
-          transform: translateX(-50%);
+          bottom: ${bot || "288px"};
+          left: ${left};
+          transform: ${useTransform ? "translateX(-50%)" : "none"};
+        `;
+        els.push(dot);
+        break;
+      }
+
+      case "blink-dish": {
+        /* Satellite dish antenna tip — same style as tower-blink, red */
+        const dot = document.createElement("div");
+        dot.className = "tower-blink";
+        dot.style.cssText = `
+          bottom: ${bot || "288px"};
+          left: ${left};
+          transform: ${useTransform ? "translateX(-50%)" : "none"};
         `;
         els.push(dot);
         break;
@@ -253,9 +275,9 @@ function buildAnimations(region) {
         const beacon = document.createElement("div");
         beacon.className = "beacon";
         beacon.style.cssText = `
-          bottom: 298px;
-          left: 50%;
-          transform: translateX(-50%);
+          bottom: ${bot || "298px"};
+          left: ${left};
+          transform: ${useTransform ? "translateX(-50%)" : "none"};
         `;
         els.push(beacon);
         break;
