@@ -9,7 +9,7 @@ const REGIONS = [
     position: { x: 20, y: 25 },
     color: "#E87040",
     pdf: "assets/pdfs/industrial.pdf",
-    animations: [{ type: "smoke", left: "calc(50% - 75px)", bottom: "268px" }],
+    animations: [{ type: "smoke", left: "calc(50% - 75px)", bottom: "258px" }],
     structure: { width: "70px", height: "90px" },
     base: "assets/regions/industrial/base.png"
   },
@@ -49,8 +49,8 @@ const REGIONS = [
       }
     ],
     animations: [
-      { type: "blink-tower", left: "calc(50% - 135px)", bottom: "328px" },
-      { type: "blink-dish",  left: "calc(50% + 42px)",  bottom: "312px" }
+      { type: "blink-tower", left: "calc(50% - 125px)", bottom: "328px" },
+      { type: "blink-dish",  left: "calc(50% + 55px)",  bottom: "322px" }
     ],
     structure: { width: "14px", height: "100px" },
     base: "assets/regions/signal/base.png"
