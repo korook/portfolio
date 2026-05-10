@@ -178,7 +178,7 @@ function renderRegions() {
     label.className = "region-label";
     if (region.position.y < 35) label.classList.add("label-below");
     label.innerHTML = `
-      <span class="label-name"><span class="label-icon">📍</span>${region.name}</span>
+      <span class="label-name">${region.name}</span>
       <span class="label-desc">${region.description}</span>
     `;
 
