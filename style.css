@@ -39,7 +39,8 @@ html, body {
     radial-gradient(ellipse at 50% 50%, rgba(12,100,118,0.5)  0%, transparent 80%);
 }
 
-/* Animated diagonal water-stripe ripple */
+/* Animated diagonal water-stripe ripple — disabled (background art is present) */
+#map::before, #map::after { display: none; }
 #map::before {
   content: '';
   position: absolute;

@@ -185,16 +185,10 @@ function renderRegions() {
       <span class="label-desc">${region.description}</span>
     `;
 
-    /* DEBUG: position readout — remove when done */
-    const dbg = document.createElement("div");
-    dbg.style.cssText = "position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:red;color:#fff;font:bold 13px monospace;padding:4px 8px;border-radius:4px;z-index:999;pointer-events:none;white-space:nowrap;";
-    dbg.textContent = `x:${region.position.x} y:${region.position.y}`;
-
     el.appendChild(base);
     if (structure) el.appendChild(structure);
     animEls.forEach(a => el.appendChild(a));
     el.appendChild(label);
-    el.appendChild(dbg);
 
     /* Click → open PDF overlay */
     el.addEventListener("click", () => openPanel(region));
