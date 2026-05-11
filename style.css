@@ -7,21 +7,123 @@ html, body {
   font-family: 'Nunito', 'Segoe UI', system-ui, sans-serif;
 }
 
-/* ── Mobile block ─────────────────────────────────────────── */
+/* ── Mobile fallback ──────────────────────────────────────── */
 .mobile-block {
   display: none;
   position: fixed; inset: 0; z-index: 9999;
-  background: #0d2137;
-  align-items: center; justify-content: center;
-  text-align: center;
-  color: #fff;
-  font-size: 1.4rem;
-  font-weight: 700;
-  padding: 2rem;
-  font-family: 'Fredoka One', cursive;
+  background: #0a0d1a;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 @media (max-width: 768px) {
-  .mobile-block { display: flex; }
+  .mobile-block { display: block; }
+}
+
+.mob-inner {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mob-header {
+  text-align: center;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.mob-header h1 {
+  font-family: 'Fredoka One', cursive;
+  font-size: 2.2rem;
+  color: #fff;
+  letter-spacing: 0.02em;
+}
+.mob-sub {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.45);
+  margin-top: 0.3rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.mob-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.mob-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  background: rgba(255,255,255,0.04);
+  border: 1.5px solid color-mix(in srgb, var(--mc) 40%, transparent);
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+}
+.mob-card:active {
+  background: color-mix(in srgb, var(--mc) 12%, transparent);
+}
+
+.mob-card-name {
+  font-family: 'Fredoka One', cursive;
+  font-size: 1.05rem;
+  color: var(--mc);
+}
+.mob-card-desc {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.45);
+}
+.mob-card-cta {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--mc);
+  margin-top: 0.4rem;
+  opacity: 0.85;
+}
+.mob-card-soon {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.25);
+  margin-top: 0.2rem;
+  font-style: italic;
+}
+
+.mob-projects {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(255,255,255,0.07);
+}
+.mob-projects a {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.75);
+  text-decoration: none;
+  padding: 0.35rem 0.6rem;
+  border-radius: 7px;
+  background: rgba(255,255,255,0.04);
+  transition: background 0.15s, color 0.15s;
+}
+.mob-projects a:active {
+  background: color-mix(in srgb, var(--mc) 20%, transparent);
+  color: #fff;
+}
+
+.mob-hint {
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.2);
+  letter-spacing: 0.03em;
 }
 
 /* ═══════════════════════════════════════════════════════════
