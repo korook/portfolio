@@ -6,7 +6,7 @@ const REGIONS = [
     id: "industrial",
     name: "Industrial District",
     description: "Industrial Design Portfolio",
-    position: { x: 27, y: 35 },
+    position: { x: 28, y: 35 },
     color: "#E87040",
     pdf: "assets/pdfs/industrial.pdf",
     animations: [{ type: "smoke", left: "calc(50% - 75px)", bottom: "258px" }],
@@ -17,7 +17,7 @@ const REGIONS = [
     id: "graph",
     name: "Graph City",
     description: "Posters, Graphics & Illustrations",
-    position: { x: 70, y: 40 },
+    position: { x: 69, y: 39 },
     color: "#9B5DE5",
     panelType: "feed",
     projects: [
@@ -37,7 +37,7 @@ const REGIONS = [
     id: "signal",
     name: "Signal Bay",
     description: "Sound Projects & Music",
-    position: { x: 26, y: 80 },
+    position: { x: 27, y: 81 },
     color: "#00C2C7",
     panelType: "feed",
     projects: [
