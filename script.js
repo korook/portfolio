@@ -11,7 +11,7 @@ const REGIONS = [
     pdf: "assets/pdfs/industrial.pdf",
     animations: [
       { type: "smoke", left: "calc(50% - 75px)", bottom: "258px" },
-      { type: "smoke", left: "calc(50% - 95px)", bottom: "258px" }
+      { type: "smoke", left: "calc(50% - 90px)", bottom: "258px" }
     ],
     structure: { width: "70px", height: "90px" },
     base: "assets/regions/industrial/base.png"
@@ -112,7 +112,7 @@ const REGIONS = [
     ],
     animations: [
       { type: "blink-tower", left: "calc(50% - 121px)", bottom: "330px" },
-      { type: "blink-dish",  left: "calc(50% + 59px)",  bottom: "324px" }
+      { type: "blink-dish",  left: "calc(50% + 59px)",  bottom: "320px" }
     ],
     structure: { width: "14px", height: "100px" },
     base: "assets/regions/signal/base.png"
