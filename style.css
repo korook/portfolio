@@ -119,6 +119,13 @@ html, body {
   background: color-mix(in srgb, var(--mc) 28%, transparent);
 }
 
+.mob-divider {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  height: 1px;
+  background: rgba(255,255,255,0.1);
+}
+
 .mob-hint {
   text-align: center;
   font-family: 'Nunito', sans-serif;
