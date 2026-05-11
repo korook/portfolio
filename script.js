@@ -138,6 +138,14 @@ const PATHS = [
   ["signal",     "archive"]
 ];
 
+/* Cloud definitions */
+const CLOUDS = [
+  { width: 140, top: 8,  duration: 60,  delay: 0   },
+  { width: 100, top: 22, duration: 90,  delay: -30 },
+  { width: 160, top: 42, duration: 120, delay: -60 },
+  { width: 90,  top: 68, duration: 80,  delay: -20 }
+];
+
 const CLOUD_COUNT = 3; /* how many cloud PNG files you have (cloud1.png … cloud3.png) */
 
 /* ═══════════════════════════════════════════════════════════
@@ -159,42 +167,25 @@ function pctToPx(pct) {
 }
 
 /* ═══════════════════════════════════════════════════════════
-   CLOUD SPAWNER
-   Each cloud drifts across once, then a new one spawns after
-   a random gap — no syncing, no repeating loops.
+   RENDER CLOUDS
 ════════════════════════════════════════════════════════════ */
-function spawnCloud() {
-  const layer = document.getElementById("clouds-layer");
-  const width = Math.round(80  + Math.random() * 130);  /* 80–210 px wide   */
-  const top   = (4 + Math.random() * 74).toFixed(1);    /* 4–78 % from top  */
-  const dur   = Math.round(45  + Math.random() * 80);   /* 45–125 s to cross */
-  const which = Math.floor(Math.random() * CLOUD_COUNT) + 1;
-
-  const img = document.createElement("img");
-  img.className = "cloud";
-  img.src       = `assets/map/cloud${which}.png`;
-  img.alt       = "";
-  img.draggable = false;
-  img.style.cssText = `
-    width:${width}px;
-    top:${top}%;
-    left:-${width + 10}px;
-    animation:cloudDrift ${dur}s linear 0s forwards;
-  `;
-  layer.appendChild(img);
-
-  /* When this cloud exits, remove it and queue the next one */
-  img.addEventListener("animationend", () => {
-    img.remove();
-    setTimeout(spawnCloud, 1500 + Math.random() * 7000); /* 1.5–8.5 s gap */
-  });
-}
-
 function renderClouds() {
-  const seed = 3 + Math.floor(Math.random() * 2); /* 3–4 initial clouds */
-  for (let i = 0; i < seed; i++) {
-    setTimeout(spawnCloud, i === 0 ? 0 : i * 4000 + Math.random() * 2000);
-  }
+  const layer = document.getElementById("clouds-layer");
+  CLOUDS.forEach((c) => {
+    const img = document.createElement("img");
+    img.className = "cloud";
+    /* Alternate between cloud1.png and cloud2.png randomly */
+    img.src = `assets/map/cloud${Math.floor(Math.random() * CLOUD_COUNT) + 1}.png`;
+    img.alt = "";
+    img.draggable = false;
+    img.style.cssText = `
+      width: ${c.width}px;
+      top: ${c.top}%;
+      left: -${c.width}px;
+      animation: cloudDrift ${c.duration}s linear ${c.delay}s infinite;
+    `;
+    layer.appendChild(img);
+  });
 }
 
 /* ═══════════════════════════════════════════════════════════
