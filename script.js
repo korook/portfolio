@@ -70,6 +70,12 @@ const REGIONS = [
         description: "This project is a sound redesign of a scene from Chainsaw Man, made entirely with self-recorded foley, free sounds, and original dubbing. It opens with a heavy ambient that slowly makes you feel like something is about to go wrong. The Leech Devil's voice was dubbed and run through a filter to get it deeper and more unsettling. Right before the big moment, the sound drops into silence — just for a second — and then everything hits at once with a massive earthquake sound. The scene's original pacing is kept intact, the sound design just wraps around it in a completely personal way.",
         thumbnail: "assets/regions/signal/projects/kon.thumb.png",
         media: "assets/regions/signal/projects/chainsawman.kon.mp4"
+      },
+      {
+        name: "Charge Rifle - Sound Redesign",
+        description: "The Charge Rifle from the game Apex Legends, taken apart and rebuilt from scratch. Using self-recorded foley and free sound samples, the goal was to give the weapon two distinct moments — the slow build of the charge, and the hit of the shot. The vibe of the original is still recognizable, just made with completely different materials.",
+        thumbnail: "assets/regions/signal/projects/apex.thumb.png",
+        media: "assets/regions/signal/projects/apex.charge.rifle.mp4"
       }
     ],
     animations: [
