@@ -9,7 +9,10 @@ const REGIONS = [
     position: { x: 28, y: 35 },
     color: "#E87040",
     pdf: "assets/pdfs/industrial.pdf",
-    animations: [{ type: "smoke", left: "calc(50% - 75px)", bottom: "258px" }],
+    animations: [
+      { type: "smoke", left: "calc(50% - 75px)", bottom: "258px" },
+      { type: "smoke", left: "calc(50% - 130px)", bottom: "258px" }
+    ],
     structure: { width: "70px", height: "90px" },
     base: "assets/regions/industrial/base.png"
   },
@@ -302,24 +305,23 @@ function buildAnimations(region) {
       case "blink-tower": {
         const dot = document.createElement("div");
         dot.className = "tower-blink";
-        dot.style.cssText = `
-          bottom: ${bot || "288px"};
-          left: ${left};
-          transform: ${useTransform ? "translateX(-50%)" : "none"};
-        `;
+        dot.style.cssText = `bottom:${bot||"288px"};left:${left};transform:${useTransform?"translateX(-50%)":"none"};`;
+        const dbgT = document.createElement("div");
+        dbgT.style.cssText = "position:absolute;top:-18px;left:0;background:blue;color:#fff;font:bold 10px monospace;padding:2px 5px;border-radius:3px;white-space:nowrap;z-index:999;pointer-events:none;";
+        dbgT.textContent = `T: left:${left} bot:${bot}`;
+        dot.appendChild(dbgT);
         els.push(dot);
         break;
       }
 
       case "blink-dish": {
-        /* Satellite dish antenna tip — same style as tower-blink, red */
         const dot = document.createElement("div");
         dot.className = "tower-blink";
-        dot.style.cssText = `
-          bottom: ${bot || "288px"};
-          left: ${left};
-          transform: ${useTransform ? "translateX(-50%)" : "none"};
-        `;
+        dot.style.cssText = `bottom:${bot||"288px"};left:${left};transform:${useTransform?"translateX(-50%)":"none"};`;
+        const dbgD = document.createElement("div");
+        dbgD.style.cssText = "position:absolute;top:-18px;left:0;background:green;color:#fff;font:bold 10px monospace;padding:2px 5px;border-radius:3px;white-space:nowrap;z-index:999;pointer-events:none;";
+        dbgD.textContent = `D: left:${left} bot:${bot}`;
+        dot.appendChild(dbgD);
         els.push(dot);
         break;
       }
