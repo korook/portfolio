@@ -36,8 +36,8 @@ const REGIONS = [
       {
         name: "Chainsaw Man - Pochita",
         description: "A manga panel recreation from Chainsaw Man, drawn in ink pen and marker by hand. The figure is largely covered in heavy black fills while the background is filled with loose, frantic linework. The approach stays close to the raw energy of the original manga style.",
-        thumbnail: "assets/regions/graph/projects/chainsawman.JPG",
-        media: "assets/regions/graph/projects/chainsawman.JPG"
+        thumbnail: "assets/regions/graph/projects/chainsaw.JPG",
+        media: "assets/regions/graph/projects/chainsaw.JPG"
       },
       {
         name: "Fallout T-45 Helmet",
@@ -54,8 +54,8 @@ const REGIONS = [
       {
         name: "The Ringmaster",
         description: "An ink pen drawing of a shaman-like sorcerer character. She stands centered within a large ring, holding and manipulating several energy rings with her clawed hands. Her skull-like face and layered outfit give her a ritualistic feel, all drawn with detailed hatching and loose linework.",
-        thumbnail: "assets/regions/graph/projects/ringmaster.JPG",
-        media: "assets/regions/graph/projects/ringmaster.JPG"
+        thumbnail: "assets/regions/graph/projects/ringmaster.jpg",
+        media: "assets/regions/graph/projects/ringmaster.jpg"
       }
     ],
     animations: [],
