@@ -64,6 +64,12 @@ const REGIONS = [
         description: "This project is a sound redesign of the scene from Spider-Man: Into the Spider-Verse where Miles realizes the Prowler is his uncle and has to hide from him. Every sound in the scene was replaced from scratch — using self-recorded foley, free sound sources, and original composition. The core of the sound design is built around drums that start quiet and controlled, then slowly get tighter and more intense as the scene builds, following the tension beat by beat. The vibe of the original scene stays intact, but the whole soundscape is rebuilt in a completely personal way.",
         thumbnail: "assets/regions/signal/projects/prowler.thumb.png",
         media: "assets/regions/signal/projects/prowler.baran.ay.mp4"
+      },
+      {
+        name: "Kon - Chainsaw Man Scene Sound Design",
+        description: "This project is a sound redesign of a scene from Chainsaw Man, made entirely with self-recorded foley, free sounds, and original dubbing. It opens with a heavy ambient that slowly makes you feel like something is about to go wrong. The Leech Devil's voice was dubbed and run through a filter to get it deeper and more unsettling. Right before the big moment, the sound drops into silence — just for a second — and then everything hits at once with a massive earthquake sound. The scene's original pacing is kept intact, the sound design just wraps around it in a completely personal way.",
+        thumbnail: "assets/regions/signal/projects/kon.thumb.png",
+        media: "assets/regions/signal/projects/chainsawman.kon.mp4"
       }
     ],
     animations: [
