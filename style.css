@@ -119,6 +119,77 @@ html, body {
   background: color-mix(in srgb, var(--mc) 28%, transparent);
 }
 
+/* Expandable project items (mobile Signal Bay & Graph City) */
+.mob-project-item {
+  width: 100%;
+}
+.mob-project-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--mc);
+  background: color-mix(in srgb, var(--mc) 14%, transparent);
+  border: none;
+  border-radius: 6px;
+  padding: 0.3rem 0.75rem;
+  cursor: pointer;
+  text-align: left;
+}
+.mob-project-btn:active {
+  background: color-mix(in srgb, var(--mc) 28%, transparent);
+}
+.mob-project-arrow {
+  font-size: 1rem;
+  line-height: 1;
+  transition: transform 0.25s ease;
+  display: inline-block;
+}
+.mob-project-item.open .mob-project-arrow {
+  transform: rotate(90deg);
+}
+.mob-project-preview {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 2px;
+}
+.mob-project-item.open .mob-project-preview {
+  max-height: 420px;
+  padding-top: 10px;
+  padding-bottom: 4px;
+}
+.mob-project-preview img {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  max-height: 180px;
+}
+.mob-project-preview p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.5;
+  margin: 0;
+}
+.mob-project-open {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--mc);
+  text-decoration: none;
+  background: color-mix(in srgb, var(--mc) 20%, transparent);
+  border-radius: 6px;
+  padding: 0.3rem 0.9rem;
+  align-self: flex-start;
+}
+
 .mob-divider {
   width: 100vw;
   margin-left: calc(-50vw + 50%);

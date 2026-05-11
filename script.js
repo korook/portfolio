@@ -549,6 +549,19 @@ overlay.addEventListener("click", e => {
 });
 
 /* ═══════════════════════════════════════════════════════════
+   MOBILE PROJECT ACCORDION
+════════════════════════════════════════════════════════════ */
+function toggleMobProject(btn) {
+  const item = btn.closest(".mob-project-item");
+  const isOpen = item.classList.contains("open");
+  /* Close any other open item in the same card */
+  const siblings = item.closest(".mob-links").querySelectorAll(".mob-project-item.open");
+  siblings.forEach(s => s.classList.remove("open"));
+  /* Toggle this one */
+  if (!isOpen) item.classList.add("open");
+}
+
+/* ═══════════════════════════════════════════════════════════
    INIT
 ════════════════════════════════════════════════════════════ */
 renderClouds();
