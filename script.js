@@ -58,6 +58,12 @@ const REGIONS = [
         description: "Desert Bazaar is an original audiovisual project combining hand-drawn illustration and sound design. The piece places you in the middle of a busy oriental bazaar, alive with the sounds of street drummers, vendors calling out to passersby, and the constant hum of crowd chatter — all wrapped in the distant whisper of an approaching sandstorm. Then, somewhere in the middle of all that noise, a flute begins to play. At first it's just another sound in the crowd, easy to miss. But something about it pulls you in. The market noise slowly falls away as you follow the melody deeper, losing yourself in it. The drums find their rhythm around the flute, cleaner and more intentional now, and the flute opens up into a full solo — the two weaving together as the music takes over completely. It ends with a single oriental guitar riff, like snapping back to reality for just a moment before everything goes quiet.",
         thumbnail: "assets/regions/signal/projects/desert.bazaar.thumb.jpg",
         media: "assets/regions/signal/projects/desert.bazaar.mp4"
+      },
+      {
+        name: "Spider-Man Into the Spider-Verse Prowler Scene Sound Design",
+        description: "Prowler — Sound Redesign\nThis project is a sound redesign of the scene from Spider-Man: Into the Spider-Verse where Miles realizes the Prowler is his uncle and has to hide from him. Every sound in the scene was replaced from scratch — using self-recorded foley, free sound sources, and original composition. The core of the sound design is built around drums that start quiet and controlled, then slowly get tighter and more intense as the scene builds, following the tension beat by beat. The vibe of the original scene stays intact, but the whole soundscape is rebuilt in a completely personal way.",
+        thumbnail: "assets/regions/signal/projects/prowler.thumb.png",
+        media: "assets/regions/signal/projects/prowler.baran.ay.mp4"
       }
     ],
     animations: [
