@@ -566,6 +566,8 @@ html, body {
   font-weight: 600;
   color: rgba(255,255,255,0.75);
   letter-spacing: 0.04em;
+  border-left: 2px solid rgba(255,255,255,0.35);
+  padding-left: 14px;
 }
 
 #pdf-close {
