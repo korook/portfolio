@@ -61,7 +61,7 @@ const REGIONS = [
       },
       {
         name: "Spider-Man Into the Spider-Verse Prowler Scene Sound Design",
-        description: "Prowler — Sound Redesign\nThis project is a sound redesign of the scene from Spider-Man: Into the Spider-Verse where Miles realizes the Prowler is his uncle and has to hide from him. Every sound in the scene was replaced from scratch — using self-recorded foley, free sound sources, and original composition. The core of the sound design is built around drums that start quiet and controlled, then slowly get tighter and more intense as the scene builds, following the tension beat by beat. The vibe of the original scene stays intact, but the whole soundscape is rebuilt in a completely personal way.",
+        description: "This project is a sound redesign of the scene from Spider-Man: Into the Spider-Verse where Miles realizes the Prowler is his uncle and has to hide from him. Every sound in the scene was replaced from scratch — using self-recorded foley, free sound sources, and original composition. The core of the sound design is built around drums that start quiet and controlled, then slowly get tighter and more intense as the scene builds, following the tension beat by beat. The vibe of the original scene stays intact, but the whole soundscape is rebuilt in a completely personal way.",
         thumbnail: "assets/regions/signal/projects/prowler.thumb.png",
         media: "assets/regions/signal/projects/prowler.baran.ay.mp4"
       }
