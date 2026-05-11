@@ -111,7 +111,7 @@ const REGIONS = [
       }
     ],
     animations: [
-      { type: "blink-tower", left: "calc(50% - 121px)", bottom: "330px" },
+      { type: "blink-tower", left: "calc(50% - 118px)", bottom: "328px" },
       { type: "blink-dish",  left: "calc(50% + 59px)",  bottom: "320px" }
     ],
     structure: { width: "14px", height: "100px" },
