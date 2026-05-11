@@ -140,11 +140,13 @@ const PATHS = [
 
 /* Cloud definitions */
 const CLOUDS = [
-  { width: 140, height: 52, top: 8,  duration: 60,  delay: 0   },
-  { width: 100, height: 38, top: 22, duration: 90,  delay: -30 },
-  { width: 160, height: 60, top: 42, duration: 120, delay: -60 },
-  { width: 90,  height: 34, top: 68, duration: 80,  delay: -20 }
+  { width: 140, top: 8,  duration: 60,  delay: 0   },
+  { width: 100, top: 22, duration: 90,  delay: -30 },
+  { width: 160, top: 42, duration: 120, delay: -60 },
+  { width: 90,  top: 68, duration: 80,  delay: -20 }
 ];
+
+const CLOUD_COUNT = 3; /* how many cloud PNG files you have (cloud1.png … cloud3.png) */
 
 /* ═══════════════════════════════════════════════════════════
    HELPERS
@@ -169,24 +171,20 @@ function pctToPx(pct) {
 ════════════════════════════════════════════════════════════ */
 function renderClouds() {
   const layer = document.getElementById("clouds-layer");
-  CLOUDS.forEach((c, i) => {
-    const el = document.createElement("div");
-    el.className = "cloud";
-    el.style.cssText = `
+  CLOUDS.forEach((c) => {
+    const img = document.createElement("img");
+    img.className = "cloud";
+    /* Alternate between cloud1.png and cloud2.png randomly */
+    img.src = `assets/map/cloud${Math.floor(Math.random() * CLOUD_COUNT) + 1}.png`;
+    img.alt = "";
+    img.draggable = false;
+    img.style.cssText = `
       width: ${c.width}px;
-      height: ${c.height}px;
       top: ${c.top}%;
       left: -${c.width}px;
-      animation: cloudDrift${Math.round(c.duration / 30) * 30 > 90 ? 120 : Math.round(c.duration / 30) * 30 < 90 ? 60 : 90} ${c.duration}s linear ${c.delay}s infinite;
+      animation: cloudDrift ${c.duration}s linear ${c.delay}s infinite;
     `;
-    /* Make clouds look puffy with pseudo-puffs via box-shadow */
-    const hw = Math.round(c.width  * 0.35);
-    const hh = Math.round(c.height * 0.6);
-    el.style.boxShadow = `
-      ${hw}px -${Math.round(hh*0.5)}px 0 ${Math.round(hh*0.15)}px rgba(255,255,255,0.82),
-      -${hw}px -${Math.round(hh*0.3)}px 0 0 rgba(255,255,255,0.75)
-    `;
-    layer.appendChild(el);
+    layer.appendChild(img);
   });
 }
 
@@ -205,12 +203,24 @@ function renderRegions() {
     el.style.top  = `${region.position.y}%`;
     el.style.setProperty('--rc', region.color);
 
-    /* Glow on hover */
+    /* Glow on hover + fade clouds that overlap the label */
     el.addEventListener("mouseenter", () => {
       el.style.filter = `drop-shadow(0 0 18px ${region.color})`;
+      const label = el.querySelector(".region-label");
+      if (!label) return;
+      const lr = label.getBoundingClientRect();
+      document.querySelectorAll(".cloud").forEach(cloud => {
+        const cr = cloud.getBoundingClientRect();
+        const overlaps = !(cr.right < lr.left || cr.left > lr.right ||
+                           cr.bottom < lr.top  || cr.top  > lr.bottom);
+        if (overlaps) cloud.style.opacity = "0.12";
+      });
     });
     el.addEventListener("mouseleave", () => {
       el.style.filter = "";
+      document.querySelectorAll(".cloud").forEach(cloud => {
+        cloud.style.opacity = "1";
+      });
     });
 
     /* Island base — PNG art if available, otherwise CSS placeholder */
