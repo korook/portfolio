@@ -199,11 +199,11 @@ html, body {
   transform: translateX(-50%);
   /* Game UI tooltip panel */
   background: linear-gradient(160deg, #1a1030 0%, #120c26 100%);
-  border: 2px solid rgba(220,180,60,0.7);
+  border: 2px solid var(--rc, rgba(220,180,60,0.7));
   /* Pixel-art double border via box-shadow */
   box-shadow:
     0 0 0 1px rgba(0,0,0,0.8),
-    0 0 0 3px rgba(220,180,60,0.18),
+    0 0 0 3px color-mix(in srgb, var(--rc, #dcb43c) 18%, transparent),
     0 8px 24px rgba(0,0,0,0.5),
     inset 0 1px 0 rgba(255,255,255,0.08);
   border-radius: 8px;
@@ -224,7 +224,7 @@ html, body {
   transform: translateX(-50%);
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
-  border-top: 8px solid rgba(220,180,60,0.7);
+  border-top: 8px solid var(--rc, rgba(220,180,60,0.7));
 }
 
 /* Flip: label below the island for top-of-screen regions */
@@ -237,7 +237,7 @@ html, body {
   bottom: auto;
   top: -8px;
   border-top: none;
-  border-bottom: 8px solid rgba(220,180,60,0.7);
+  border-bottom: 8px solid var(--rc, rgba(220,180,60,0.7));
 }
 
 .region:hover .region-label {
@@ -260,7 +260,7 @@ html, body {
   font-family: 'Fredoka One', cursive;
   font-size: 0.88rem;
   font-weight: 400; /* Fredoka One is always bold */
-  color: #f5e08a;
+  color: var(--rc, #f5e08a);
   letter-spacing: 0.04em;
   line-height: 1.2;
 }

@@ -141,6 +141,7 @@ function renderRegions() {
     el.dataset.id = region.id;
     el.style.left = `${region.position.x}%`;
     el.style.top  = `${region.position.y}%`;
+    el.style.setProperty('--rc', region.color);
 
     /* Glow on hover */
     el.addEventListener("mouseenter", () => {
