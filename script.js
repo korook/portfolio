@@ -6,7 +6,7 @@ const REGIONS = [
     id: "industrial",
     name: "Industrial District",
     description: "Industrial Design Portfolio",
-    position: { x: 25, y: 37 },
+    position: { x: 28, y: 35 },
     color: "#E87040",
     pdf: "assets/pdfs/industrial.pdf",
     animations: [{ type: "smoke", left: "calc(50% - 75px)", bottom: "258px" }],
@@ -17,7 +17,7 @@ const REGIONS = [
     id: "graph",
     name: "Graph City",
     description: "Posters, Graphics & Illustrations",
-    position: { x: 70, y: 37 },
+    position: { x: 72, y: 38 },
     color: "#9B5DE5",
     panelType: "feed",
     projects: [
@@ -37,7 +37,7 @@ const REGIONS = [
     id: "signal",
     name: "Signal Bay",
     description: "Sound Projects & Music",
-    position: { x: 23, y: 75 },
+    position: { x: 24, y: 78 },
     color: "#00C2C7",
     panelType: "feed",
     projects: [
@@ -59,7 +59,7 @@ const REGIONS = [
     id: "archive",
     name: "The Archive",
     description: "CV and Personal Info",
-    position: { x: 75, y: 72 },
+    position: { x: 60, y: 80 },
     color: "#F4C842",
     pdf: "assets/pdfs/archive.pdf",
     animations: [],
@@ -185,10 +185,16 @@ function renderRegions() {
       <span class="label-desc">${region.description}</span>
     `;
 
+    /* DEBUG: position readout — remove when done */
+    const dbg = document.createElement("div");
+    dbg.style.cssText = "position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:red;color:#fff;font:bold 13px monospace;padding:4px 8px;border-radius:4px;z-index:999;pointer-events:none;white-space:nowrap;";
+    dbg.textContent = `x:${region.position.x} y:${region.position.y}`;
+
     el.appendChild(base);
     if (structure) el.appendChild(structure);
     animEls.forEach(a => el.appendChild(a));
     el.appendChild(label);
+    el.appendChild(dbg);
 
     /* Click → open PDF overlay */
     el.addEventListener("click", () => openPanel(region));
