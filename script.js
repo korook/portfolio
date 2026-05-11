@@ -21,13 +21,42 @@ const REGIONS = [
     color: "#9B5DE5",
     panelType: "feed",
     projects: [
-      // Add projects here. Each entry:
-      // {
-      //   name: "Project Name",
-      //   description: "Short description",
-      //   thumbnail: "assets/regions/graph/projects/thumb.jpg",
-      //   media: "assets/regions/graph/projects/media.jpg"  ← image OR .mp4
-      // }
+      {
+        name: "Xenomorph",
+        description: "An ink pen and alcohol marker study of the Xenomorph from the movie: \"Alien\", drawn from a reference image. The figure is built up through dense hatching and crosshatching, mixing mechanical and organic forms entirely by hand on paper.",
+        thumbnail: "assets/regions/graph/projects/alien.JPG",
+        media: "assets/regions/graph/projects/alien.JPG"
+      },
+      {
+        name: "IG-88",
+        description: "An ink pen and marker study of IG-88 from Star Wars, drawn from reference by hand. The bounty hunter droid is captured with all its mechanical complexity — layered armor plating, heavy weaponry, and industrial detailing built up through dense hatching.",
+        thumbnail: "assets/regions/graph/projects/IG-88.JPG",
+        media: "assets/regions/graph/projects/IG-88.JPG"
+      },
+      {
+        name: "Chainsaw Man - Pochita",
+        description: "A manga panel recreation from Chainsaw Man, drawn in ink pen and marker by hand. The figure is largely covered in heavy black fills while the background is filled with loose, frantic linework. The approach stays close to the raw energy of the original manga style.",
+        thumbnail: "assets/regions/graph/projects/chainsawman.JPG",
+        media: "assets/regions/graph/projects/chainsawman.JPG"
+      },
+      {
+        name: "Fallout T-45 Helmet",
+        description: "An ink pen study of the T-45 power armor helmet from the Fallout series, drawn from reference by hand. The focus is on capturing all the surface detail — the vents, lenses, panels, and layered components — through dense hatching and confident linework.",
+        thumbnail: "assets/regions/graph/projects/fallout.JPG",
+        media: "assets/regions/graph/projects/fallout.JPG"
+      },
+      {
+        name: "Guitarist from Distant Lands",
+        description: "A stylishly dressed alien shredding on electric guitar, surrounded by lightning bolts and sharp radiating lines. Drawn entirely in ink pen with loose, energetic linework filling the whole composition.",
+        thumbnail: "assets/regions/graph/projects/guitarist.JPG",
+        media: "assets/regions/graph/projects/guitarist.JPG"
+      },
+      {
+        name: "The Ringmaster",
+        description: "An ink pen drawing of a shaman-like sorcerer character. She stands centered within a large ring, holding and manipulating several energy rings with her clawed hands. Her skull-like face and layered outfit give her a ritualistic feel, all drawn with detailed hatching and loose linework.",
+        thumbnail: "assets/regions/graph/projects/ringmaster.JPG",
+        media: "assets/regions/graph/projects/ringmaster.JPG"
+      }
     ],
     animations: [],
     structure: { width: "80px", height: "80px" },
