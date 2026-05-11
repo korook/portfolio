@@ -81,14 +81,6 @@ html, body {
   to   { transform: translate(38px, 38px); }
 }
 
-/* ── Stage: fixed 1920×1080 canvas that scales to fit viewport ── */
-#stage {
-  position: absolute;
-  width: 1920px;
-  height: 1080px;
-  transform-origin: top left;
-}
-
 /* ── Swappable background image ───────────────────────────── */
 /*
  * Drop your artwork at assets/map/background.png and it
@@ -104,6 +96,7 @@ html, body {
   z-index: 0;
   background-image: url('assets/map/background.png');
   background-size: 100% 100%;
+  background-position: center;
   background-repeat: no-repeat;
   /* Hidden until the PNG actually exists — the CSS ocean
      on #map shows through as the fallback. */

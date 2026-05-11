@@ -94,23 +94,12 @@ function hex2rgba(hex, alpha) {
   return `rgba(${r},${g},${b},${alpha})`;
 }
 
-const STAGE_W = 1920, STAGE_H = 1080;
-
-/* Returns {x, y} in stage pixels from percent position */
+/* Returns {x, y} in pixels from percent position */
 function pctToPx(pct) {
   return {
-    x: (pct.x / 100) * STAGE_W,
-    y: (pct.y / 100) * STAGE_H
+    x: (pct.x / 100) * window.innerWidth,
+    y: (pct.y / 100) * window.innerHeight
   };
-}
-
-/* Scale the stage to fit the viewport uniformly (no cropping) */
-function scaleStage() {
-  const stage = document.getElementById('stage');
-  const scale = Math.min(window.innerWidth / STAGE_W, window.innerHeight / STAGE_H);
-  const offsetX = (window.innerWidth  - STAGE_W * scale) / 2;
-  const offsetY = (window.innerHeight - STAGE_H * scale) / 2;
-  stage.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -501,6 +490,5 @@ overlay.addEventListener("click", e => {
 renderClouds();
 renderRegions();
 renderPaths();
-scaleStage();
 
-window.addEventListener("resize", () => { scaleStage(); refreshPaths(); });
+window.addEventListener("resize", refreshPaths);
