@@ -32,13 +32,13 @@ html, body {
 .mob-header { text-align: center; padding-bottom: 2rem; }
 .mob-header h1 {
   font-family: 'Cabin Sketch', cursive;
-  font-size: 2.4rem;
+  font-size: 3rem;
   color: #fff;
   letter-spacing: 0.02em;
 }
 .mob-sub {
   font-family: 'Nunito', sans-serif;
-  font-size: 0.72rem;
+  font-size: 0.82rem;
   color: rgba(255,255,255,0.3);
   margin-top: 0.3rem;
   letter-spacing: 0.08em;
@@ -49,17 +49,17 @@ html, body {
 .mob-card {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 1rem;
   background: color-mix(in srgb, var(--mc) 12%, #0d1120);
   width: 100vw;
   margin-left: calc(-50vw + 50%);
-  padding: 1.1rem 1.5rem;
+  padding: 1.5rem 1.5rem;
   border-radius: 0;
 }
 .mob-card--right { flex-direction: row-reverse; }
 
 .mob-island {
-  width: 170px;
+  width: 190px;
   height: auto;
   object-fit: contain;
   flex-shrink: 0;
@@ -70,7 +70,7 @@ html, body {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0.25rem;
   background: none;
   border-radius: 0;
   padding: 0;
@@ -78,20 +78,20 @@ html, body {
 
 .mob-card-name {
   font-family: 'Cabin Sketch', cursive;
-  font-size: 1.1rem;
+  font-size: 1.35rem;
   color: var(--mc);
 }
 
 .mob-card-desc {
   font-family: 'Nunito', sans-serif;
-  font-size: 0.74rem;
+  font-size: 0.82rem;
   color: rgba(255,255,255,0.35);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
 }
 
 .mob-card-cta {
   font-family: 'Nunito', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: var(--mc);
   text-decoration: none;
@@ -103,16 +103,16 @@ html, body {
 .mob-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.3rem;
+  gap: 0.35rem;
 }
 .mob-links a {
   font-family: 'Nunito', sans-serif;
-  font-size: 0.73rem;
+  font-size: 0.82rem;
   font-weight: 600;
   color: var(--mc);
   text-decoration: none;
-  padding: 0.25rem 0.6rem;
-  border-radius: 20px;
+  padding: 0.3rem 0.75rem;
+  border-radius: 6px;
   background: color-mix(in srgb, var(--mc) 14%, transparent);
 }
 .mob-links a:active {
