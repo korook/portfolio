@@ -46,6 +46,18 @@ const REGIONS = [
         description: "Lost in Space is an original audiovisual project combining hand-drawn illustration and sound design. The piece follows an astronaut who arrives at a space casino, stepping into its lively and chaotic atmosphere. As the astronaut settles in and begins to play, the world around them slowly fades. The noise and energy of the casino give way to something more internal — a quiet drift into thought. From there, the music takes over, gradually expanding into a spacey, cinematic soundscape that grows more majestic as it unfolds, mirroring the astronaut's journey deeper into their own mind. The illustration and soundscape were designed together as a single experience, where the visual anchors the story and the audio carries the emotional arc.",
         thumbnail: "assets/regions/signal/projects/lost.in.space.thumb.jpg",
         media: "assets/regions/signal/projects/lost.in.space.mp4"
+      },
+      {
+        name: "Uncanny Dream",
+        description: "Uncanny Dream is an original audiovisual project combining hand-drawn illustration and sound design. The piece drops you into a long, dimly lit corridor — the kind of place that feels like it shouldn't exist. Flooded with water for no clear reason, stretching endlessly forward, with a figure standing in the distance doing nothing but staring back at you. The sound begins as a dreamy, drifting liminal soundscape, the kind that feels familiar but slightly wrong. Slowly, almost without you noticing, it starts to darken. A strange melody creeps in and takes over, pulling the atmosphere further away from anything comfortable. Then it collapses into near silence — just the sound of water dripping somewhere in the dark. And then, a girl starts humming. It's not quite comforting, not quite threatening — it's somewhere in between, which makes it worse. The humming lingers for a while, then quietly fades out. That's where it ends.",
+        thumbnail: "assets/regions/signal/projects/uncanny.dream.thumb.jpg",
+        media: "assets/regions/signal/projects/uncanny.dream.mp4"
+      },
+      {
+        name: "Desert Bazaar",
+        description: "Desert Bazaar is an original audiovisual project combining hand-drawn illustration and sound design. The piece places you in the middle of a busy oriental bazaar, alive with the sounds of street drummers, vendors calling out to passersby, and the constant hum of crowd chatter — all wrapped in the distant whisper of an approaching sandstorm. Then, somewhere in the middle of all that noise, a flute begins to play. At first it's just another sound in the crowd, easy to miss. But something about it pulls you in. The market noise slowly falls away as you follow the melody deeper, losing yourself in it. The drums find their rhythm around the flute, cleaner and more intentional now, and the flute opens up into a full solo — the two weaving together as the music takes over completely. It ends with a single oriental guitar riff, like snapping back to reality for just a moment before everything goes quiet.",
+        thumbnail: "assets/regions/signal/projects/desert.bazaar.thumb.jpg",
+        media: "assets/regions/signal/projects/desert.bazaar.mp4"
       }
     ],
     animations: [
