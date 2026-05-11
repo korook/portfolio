@@ -91,7 +91,7 @@ html, body {
   font-size: 0.8rem;
   color: var(--mc);
   text-decoration: none;
-  padding: 0.3rem 0.7rem;
+  padding: 0.25rem 0.55rem;
   border-radius: 20px;
   background: color-mix(in srgb, var(--mc) 12%, transparent);
   display: inline-block;
@@ -103,7 +103,7 @@ html, body {
 }
 
 .mob-region-img {
-  width: 140px;
+  width: 180px;
   height: auto;
   object-fit: contain;
   flex-shrink: 0;
