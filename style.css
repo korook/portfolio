@@ -546,23 +546,25 @@ html, body {
 
 #pdf-title {
   display: flex;
-  flex-direction: column;
-  gap: 3px;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 14px;
 }
 #pdf-region-name {
   font-family: 'Cabin Sketch', cursive;
-  font-size: 1.35rem;
+  font-size: 2rem;
   font-weight: 400;
   color: #fff;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+  line-height: 1;
 }
 #pdf-region-desc {
   font-family: 'Nunito', sans-serif;
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255,255,255,0.75);
   letter-spacing: 0.04em;
 }
 
