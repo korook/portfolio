@@ -306,10 +306,6 @@ function buildAnimations(region) {
         const dot = document.createElement("div");
         dot.className = "tower-blink";
         dot.style.cssText = `bottom:${bot||"288px"};left:${left};transform:${useTransform?"translateX(-50%)":"none"};`;
-        const dbgT = document.createElement("div");
-        dbgT.style.cssText = "position:absolute;top:-18px;left:0;background:blue;color:#fff;font:bold 10px monospace;padding:2px 5px;border-radius:3px;white-space:nowrap;z-index:999;pointer-events:none;";
-        dbgT.textContent = `T: ${(left.match(/-?\d+px/) || [left])[0]} / ${bot}`;
-        dot.appendChild(dbgT);
         els.push(dot);
         break;
       }
@@ -318,10 +314,6 @@ function buildAnimations(region) {
         const dot = document.createElement("div");
         dot.className = "tower-blink";
         dot.style.cssText = `bottom:${bot||"288px"};left:${left};transform:${useTransform?"translateX(-50%)":"none"};`;
-        const dbgD = document.createElement("div");
-        dbgD.style.cssText = "position:absolute;top:-18px;left:0;background:green;color:#fff;font:bold 10px monospace;padding:2px 5px;border-radius:3px;white-space:nowrap;z-index:999;pointer-events:none;";
-        dbgD.textContent = `D: ${(left.match(/-?\d+px/) || [left])[0]} / ${bot}`;
-        dot.appendChild(dbgD);
         els.push(dot);
         break;
       }
