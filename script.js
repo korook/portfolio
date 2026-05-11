@@ -10,8 +10,8 @@ const REGIONS = [
     color: "#E87040",
     pdf: "assets/pdfs/industrial.pdf",
     animations: [
-      { type: "smoke", left: "calc(50% - 75px)", bottom: "258px" },
-      { type: "smoke", left: "calc(50% - 105px)", bottom: "258px" }
+      { type: "smoke", left: "calc(50% - 55px)", bottom: "258px" },
+      { type: "smoke", left: "calc(50% - 85px)", bottom: "258px" }
     ],
     structure: { width: "70px", height: "90px" },
     base: "assets/regions/industrial/base.png"
@@ -111,8 +111,8 @@ const REGIONS = [
       }
     ],
     animations: [
-      { type: "blink-tower", left: "calc(50% - 125px)", bottom: "328px" },
-      { type: "blink-dish",  left: "calc(50% + 55px)",  bottom: "322px" }
+      { type: "blink-tower", left: "calc(50% - 121px)", bottom: "330px" },
+      { type: "blink-dish",  left: "calc(50% + 58px)",  bottom: "325px" }
     ],
     structure: { width: "14px", height: "100px" },
     base: "assets/regions/signal/base.png"
