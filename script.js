@@ -191,10 +191,10 @@ function spawnCloud() {
 }
 
 function renderClouds() {
-  /* Stagger the first few clouds so they don't all leave the left at once */
+  /* First cloud immediately, rest staggered by 3–6 s */
   const seed = 3 + Math.floor(Math.random() * 2); /* 3–4 initial clouds */
   for (let i = 0; i < seed; i++) {
-    setTimeout(spawnCloud, i * 8000 + Math.random() * 4000);
+    setTimeout(spawnCloud, i * 3000 + Math.random() * 2000);
   }
 }
 
