@@ -163,42 +163,38 @@ function pctToPx(pct) {
    Each cloud drifts across once, then a new one spawns after
    a random gap — no syncing, no repeating loops.
 ════════════════════════════════════════════════════════════ */
-function spawnCloud(startMid) {
-  const layer  = document.getElementById("clouds-layer");
-  const width  = Math.round(80  + Math.random() * 130);       /* 80–210 px wide        */
-  const top    = (4 + Math.random() * 74).toFixed(1);         /* 4–78 % from top       */
-  const dur    = Math.round(45  + Math.random() * 80);        /* 45–125 s to cross     */
-  const which  = Math.floor(Math.random() * CLOUD_COUNT) + 1;
-
-  /* For initial seeding, jump the cloud to a random point mid-screen */
-  const progress = startMid ? Math.random() * 0.65 : 0;
-  const delay    = startMid ? +( -(dur * progress).toFixed(1) ) : 0;
+function spawnCloud() {
+  const layer = document.getElementById("clouds-layer");
+  const width = Math.round(80  + Math.random() * 130);  /* 80–210 px wide   */
+  const top   = (4 + Math.random() * 74).toFixed(1);    /* 4–78 % from top  */
+  const dur   = Math.round(45  + Math.random() * 80);   /* 45–125 s to cross */
+  const which = Math.floor(Math.random() * CLOUD_COUNT) + 1;
 
   const img = document.createElement("img");
-  img.className  = "cloud";
-  img.src        = `assets/map/cloud${which}.png`;
-  img.alt        = "";
-  img.draggable  = false;
+  img.className = "cloud";
+  img.src       = `assets/map/cloud${which}.png`;
+  img.alt       = "";
+  img.draggable = false;
   img.style.cssText = `
     width:${width}px;
     top:${top}%;
     left:-${width + 10}px;
-    animation:cloudDrift ${dur}s linear ${delay}s forwards;
+    animation:cloudDrift ${dur}s linear 0s forwards;
   `;
   layer.appendChild(img);
 
-  /* When this cloud exits the screen, remove it and queue the next one */
+  /* When this cloud exits, remove it and queue the next one */
   img.addEventListener("animationend", () => {
     img.remove();
-    setTimeout(() => spawnCloud(false), 1500 + Math.random() * 7000); /* 1.5–8.5 s gap */
+    setTimeout(spawnCloud, 1500 + Math.random() * 7000); /* 1.5–8.5 s gap */
   });
 }
 
 function renderClouds() {
-  /* Seed 3–4 clouds already in flight across the sky */
-  const seed = 3 + Math.floor(Math.random() * 2);
+  /* Stagger the first few clouds so they don't all leave the left at once */
+  const seed = 3 + Math.floor(Math.random() * 2); /* 3–4 initial clouds */
   for (let i = 0; i < seed; i++) {
-    setTimeout(() => spawnCloud(true), i * 900); /* stagger spawns by ~0.9 s */
+    setTimeout(spawnCloud, i * 8000 + Math.random() * 4000);
   }
 }
 
