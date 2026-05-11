@@ -89,11 +89,18 @@ html, body {
 .mob-links a {
   font-family: 'Nunito', sans-serif;
   font-size: 0.8rem;
-  color: rgba(255,255,255,0.6);
+  color: var(--mc);
   text-decoration: none;
-  padding: 0.15rem 0;
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  background: color-mix(in srgb, var(--mc) 12%, transparent);
+  display: inline-block;
+  opacity: 0.9;
 }
-.mob-links a:active { color: var(--mc); }
+.mob-links a:active {
+  opacity: 1;
+  background: color-mix(in srgb, var(--mc) 25%, transparent);
+}
 
 .mob-region-img {
   width: 140px;
